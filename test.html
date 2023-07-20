@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  display: none;
+  text-align: center;
+}
+
+.result h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.result p {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.status-circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+  background-color: white;
+  text-align: center;
+  line-height: 20px;
+}
+
+.status-circle.completed {
+  background-color: #555;
+  color: #fff;
+}
+
+.status-row {
+  display: block;
+  margin-bottom: 5px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="status" style="position: fixed; right: 20px; top: 20px;"></div>
+
+<h3 id="question"></h3>
+
+<div id="choices"></div>
+
+<button onclick="prevQuestion()">上一题</button>
+<button onclick="nextQuestion()">下一题</button>
+<button onclick="submitQuiz()">提交</button>
+
+<p id="progress"></p>
+
+<div id="recommendation" class="result"></div>
+
+<button id="return-home" style="display:none;" onclick="window.location.href='main.html'">返回主页</button>
+
+<script>
+var questions = [
+  {question: "下列哪个选项不是TCP/IP模型的层级?", choices: ["应用层", "传输层", "网络层", "数据链路层", "建立层"], answer: 4},
+  {question: "哪种类型的攻击是通过发送大量的请求到网络服务，使其超负荷并无法处理合法请求?", choices: ["分布式拒绝服务攻击 (DDoS)", "SQL注入攻击", "跨站脚本攻击 (XSS)", "钓鱼攻击"], answer: 0},
+  {question: "在网络安全中，什么是威胁建模?", choices: ["对可能的安全威胁进行识别、分类和优先级排序", "创建一个网络安全策略", "对网络进行定期的安全扫描", "保护网络免受病毒的攻击"], answer: 0},
+  {question: "什么是暴力破解攻击?", choices: ["尝试所有可能的密码组合来破解密码", "利用系统漏洞进行攻击", "通过社交工程手段获取密码", "利用DDoS攻击"], answer: 0},
+  {question: "在网络安全中，什么是社交工程?", choices: ["通过技术手段进行攻击", "通过人际交往手段获取信息", "通过网络监控获取信息", "通过硬件设备获取信息"], answer: 1},
+  {question: "什么是端口扫描?", choices: ["查找开放的网络端口", "查找网络中的活动设备", "查找网络中的不活动设备", "查找网络中的隐藏设备"], answer: 0},
+  {question: "在网络安全中，什么是防火墙?", choices: ["防止病毒入侵的软件", "监控和控制进出网络的硬件或软件", "用于检测网络中的恶意活动的设备", "用于加密数据的设备"], answer: 1},
+  {question: "什么是DDoS攻击?", choices: ["通过大量请求使服务器超负荷", "通过发送垃圾邮件进行攻击", "通过社交工程手段获取信息", "通过技术手段进行攻击"], answer: 0},
+  {question: "什么是SQL注入攻击?", choices: ["利用系统漏洞进行攻击", "通过发送垃圾邮件进行攻击", "通过插入恶意SQL代码来操纵数据库", "尝试所有可能的密码组合来破解密码"], answer: 2},
+  {question: "在网络安全中，什么是虚拟私人网络(VPN)?", choices: ["用于创建安全的网络连接的技术", "用于创建公开的网络连接的技术", "用于创建无线的网络连接的技术", "用于创建有线的网络连接的技术"], answer: 0},
+  {question: "在网络安全中，什么是入侵检测系统(IDS)?", choices: ["用于检测网络中的恶意活动的设备", "用于加密数据的设备", "监控和控制进出网络的硬件或软件", "防止病毒入侵的软件"], answer: 0},
+  {question: "什么是跨站脚本攻击(XSS)?", choices: ["通过插入恶意SQL代码来操纵数据库", "利用系统漏洞进行攻击", "尝试所有可能的密码组合来破解密码", "通过在网站上插入恶意脚本，使之在用户的浏览器上运行"], answer: 3},
+  {question: "在渗透测试中，什么是灰盒测试?", choices: ["测试人员拥有全部系统信息", "测试人员只知道被测试系统的名称", "测试人员拥有部分系统信息", "测试人员对系统一无所知"], answer: 2},
+  {question: "在网络安全中，什么是物理安全?", choices: ["通过技术手段保护网络", "通过人际交往手段保护网络", "通过保护硬件设备来保护网络", "通过网络监控保护网络"], answer: 2},
+  {question: "什么是恶意软件(Malware)?", choices: ["用于创建安全的网络连接的软件", "用于检测网络中的恶意活动的软件", "设计用来损害、中断或访问计算机系统的软件", "用于防止病毒入侵的软件"], answer: 2}
+// Add more questions here
+];
+var currentQuestion = 0;
+var score = 0;
+var answers = Array(questions.length).fill(-1);
+
+function showQuestion() {
+  document.getElementById("question").innerText = questions[currentQuestion].question;
+  var choices = "";
+  for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+    choices += "<p><input type='radio' name='choice' value='" + i + "'>" + questions[currentQuestion].choices[i] + "</p>";
+  }
+  document.getElementById("choices").innerHTML = choices;
+  document.getElementById("progress").innerText = "问题 " + (currentQuestion + 1) + " / " + questions.length;
+  showStatus();
+}
+
+function nextQuestion() {
+  var choice = document.querySelector('input[name="choice"]:checked').value;
+  answers[currentQuestion] = choice;
+  if (choice == questions[currentQuestion].answer) {
+    score++;
+  }
+  document.querySelectorAll('.status-circle')[currentQuestion].classList.add('completed');
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    showRecommendation();
+    document.getElementById("return-home").style.display = "inline-block";
+  }
+}
+
+function prevQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    showQuestion();
+  }
+}
+
+function showStatus() {
+  var statusHtml = "";
+  var statusRowHtml = "";
+  for (var i = 0; i < questions.length; i++) {
+    statusRowHtml += "<div class='status-circle'>" + (i + 1) + "</div>";
+    if ((i + 1) % 5 == 0) {
+      statusHtml += "<div class='status-row'>" + statusRowHtml + "</div>";
+      statusRowHtml = "";
+    }
+  }
+  if (statusRowHtml != "") {
+    statusHtml += "<div class='status-row'>" + statusRowHtml + "</div>";
+  }
+  document.getElementById("status").innerHTML = statusHtml;
+  for (var i = 0; i < currentQuestion; i++) {
+    document.querySelectorAll('.status-circle')[i].classList.add('completed');
+  }
+}
+
+function showRecommendation() {
+  var recommendation = "";
+  if (score <= 4) {
+    recommendation = "我推荐你去学习网络";
+  } else if (score <= 8) {
+    recommendation = "我推荐你去学习安全";
+  } else if (score <= 10) {
+    recommendation = "我推荐你去学习道德黑客&渗透测试";
+  } else {
+    recommendation = "我推荐你去更有深度的平台，这里不能满足你的需求";
+  }
+  document.getElementById("recommendation").innerHTML = "<h4>你的得分是 " + score + " / " + questions.length + "</h4><p>" + recommendation + "</p>";
+  document.getElementById("recommendation").style.display = "block";
+}
+
+function submitQuiz() {
+  if (document.querySelector('input[name="choice"]:checked') == null) {
+    alert("请选择一个选项");
+    return;
+  }
+  nextQuestion();
+}
+
+showQuestion();
+</script>
+
+</body>
+</html>
