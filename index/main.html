@@ -11,6 +11,8 @@
             text-align: center;
             color: #0e0d0d;
             overflow: hidden;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
         a {
             color: #008CBA;
@@ -28,14 +30,6 @@
             height: 100%;
             z-index: 1;
         }
-        .video-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1;
-        }
         h1 {
             margin-top: 50px;
             font-size: 48px;
@@ -44,6 +38,7 @@
             letter-spacing: 4px;
             z-index: 2;
             position: relative;
+            color: #f3f0f0;
         }
         .subheading {
             font-size: 24px;
@@ -63,13 +58,14 @@
             position: relative;
         }
         .steps div {
-            background: #fff;
-            padding: 20px;
-            margin: 20px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
+    background: #fff;
+  padding: 20px;
+  margin: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  z-index: 2; /* added z-index */
+}
         .steps div:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -87,27 +83,24 @@
             background-color: #efb2e0;
         }
         .footer {
-            margin-top: 50px;
-            font-size: 16px;
-            color: #fff;
-            z-index: 2;
-            position: relative;
-        }
+  margin-top: 50px;
+  font-size: 16px;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
     </style>
 </head>
 <body>
     <div class="mask"></div>
-    <video class="video-bg" autoplay loop muted>
-        <source src="background.mp4" type="video/mp4">
-    </video>
     <h1>网络安全学习平台</h1>
     <p class="subheading">用心只为初学者</p>
 
     <div class="steps">
-        <a href="network.html"></a><div>1. 网络</div>
-        <a href="security.html"></a><div>2. 安全</div>
-        <a href="hacking.html"></a><div>3. 道德黑客与渗透测试</div>
-        <a href="practice.html"></a><div>4. 实践尝试平台</div>
+      <div><a href="network\network_index.html">1. 网络</a></div>
+      <div><a href="security.html">2. 安全</a></div>
+      <div><a href="hacking.html">3. 道德黑客与渗透测试</a></div>
+      <div><a href="practice.html">4. 实践尝试平台</a></div>    
     </div>
 
     <div class="footer">

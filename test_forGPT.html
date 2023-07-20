@@ -63,13 +63,14 @@
             position: relative;
         }
         .steps div {
-            background: #fff;
-            padding: 20px;
-            margin: 20px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
+    background: #fff;
+  padding: 20px;
+  margin: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  z-index: 2; /* added z-index */
+}
         .steps div:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -87,12 +88,12 @@
             background-color: #efb2e0;
         }
         .footer {
-            margin-top: 50px;
-            font-size: 16px;
-            color: #fff;
-            z-index: 2;
-            position: relative;
-        }
+  margin-top: 50px;
+  font-size: 16px;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
     </style>
 </head>
 <body>
@@ -104,10 +105,10 @@
     <p class="subheading">用心只为初学者</p>
 
     <div class="steps">
-        <div>1. 网络</div>
-        <div>2. 安全</div>
-        <div>3. 道德黑客与渗透测试</div>
-        <div>4. 实践尝试平台</div>
+      <div><a href="network.html">1. 网络</a></div>
+      <div><a href="security.html">2. 安全</a></div>
+      <div><a href="hacking.html">3. 道德黑客与渗透测试</a></div>
+      <div><a href="practice.html">4. 实践尝试平台</a></div>    
     </div>
 
     <div class="footer">

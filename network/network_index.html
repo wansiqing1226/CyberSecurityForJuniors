@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>网络</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    header h1 {
+      flex-basis: 100%;
+      text-align: center;
+      font-size: 30px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 100%;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+      font-size: 20px;
+      position: relative;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    /* Dropdown menu styles */
+    nav ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #333;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: none;
+    }
+
+    nav ul li {
+      display: block;
+    }
+
+    nav ul li a {
+      padding: 10px;
+      margin: 0;
+      font-size: 16px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    .main-image {
+        background-image: url('connection.png');
+        background-size: cover;
+        background-position: center center;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+}
+
+    .main-image h1 {
+      font-size: 50px;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+    }
+
+    .notice, .about, .prerequisites {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 50px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 50px;
+    }
+
+    .notice h2, .about h2, .prerequisites h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .notice p, .about p, .prerequisites p {
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .about {
+      background-color: #f2f2f2;
+    }
+
+    .prerequisites {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>网络</h1>
+    <nav>
+      <a href="#">信息</a>
+      <ul>
+        <li><a href="#">信息1</a></li>
+        <li><a href="#">信息2</a></li>
+        <li><a href="#">信息3</a></li>
+      </ul>
+      <a href="#">课程</a>
+      <ul>
+        <li><a href="#">课程1</a></li>
+        <li><a href="#">课程2</a></li>
+        <li><a href="#">课程3</a></li>
+      </ul>
+      <a href="#">练习</a>
+      <ul>
+        <li><a href="#">练习1</a></li>
+        <li><a href="#">练习2</a></li>
+        <li><a href="#">练习3</a></li>
+      </ul>
+      <a href="#">游戏</a>
+      <ul>
+        <li><a href="#">游戏1</a></li>
+        <li><a href="#">游戏2</a></li>
+        <li><a href="#">游戏3</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="main-image">
+    <h1>Hello, world!</h1>
+  </section>
+
+  <section class="notice">
+    <h2>公告</h2>
+    <p>这里是公告内容。</p>
+  </section>
+
+  <section class="about">
+    <h2>关于</h2>
+    <p>我们的网络课程全面介绍计算机网络基础知识，其中包括网络协议、设备和架构，以及网络安全和故障排除策略，为您未来学习网络安全打下坚实基础。</p>
+    <p>本课程旨在为您提供在网络管理方面所需的知识和技能。通过学习不同类型的网络，包括局域网、广域网和无线网络，并获得实际经验来配置和管理网络设备，如路由器和交换机，您将能够深入了解计算机网络。</p>
+    <p>除了常规的课程外，我们还提供互动性笔记和配套习题，同时为了考验学生的学习成果，我们提供闯关剧情类2D游戏。</p>
+    <p>我们的目标是使课程既有趣又具有挑战性，通过实践实验和真实场景测试您的技能，帮助您应用所学知识。完成课程后，您将深入了解计算机网络，并能够在实际情况下配置和管理网络。</p>
+  </section>
+
+  <section class="prerequisites">
+    <h2>先决条件</h2>
+    <p>基本计算机知识：您应该熟悉计算机硬件、软件和操作系统的基本概念。</p>
+  </section>
+
+</body>
+</html>
