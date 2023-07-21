@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Networking Concepts</title>
+</head>
+<body>
+	<h1>Networking Concepts</h1>
+	<h2>Overview</h2>
+	<p>Networking involves the communication of devices over a network, and it requires the use of various protocols and ports to establish connections and transfer data.</p>
+	<h2>Ports</h2>
+    <style>
+        .port-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    
+        .port-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+    
+        .port-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+    
+        .port-name {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    
+        .port-number {
+            text-align: center;
+        }
+    
+        .port-box:nth-child(1) {
+            background-color: rgba(244, 67, 54, 0.5);
+        }
+    
+        .port-box:nth-child(2) {
+            background-color: rgba(233, 30, 99, 0.5);
+        }
+    
+        .port-box:nth-child(3) {
+            background-color: rgba(156, 39, 176, 0.5);
+        }
+    
+        .port-box:nth-child(4) {
+            background-color: rgba(63, 81, 181, 0.5);
+        }
+    
+        .port-box:nth-child(5) {
+            background-color: rgba(33, 150, 243, 0.5);
+        }
+    
+        .port-box:nth-child(6) {
+            background-color: rgba(76, 175, 80, 0.5);
+        }
+    
+        .port-box:nth-child(7) {
+            background-color: rgba(255, 193, 7, 0.5);
+        }
+    
+        .port-box:nth-child(8) {
+            background-color: rgba(255, 152, 0, 0.5);
+        }
+    
+        .port-box:nth-child(9) {
+            background-color: rgba(255, 87, 34, 0.5);
+        }
+    
+        .port-box:nth-child(10) {
+            background-color: rgba(121, 85, 72, 0.5);
+        }
+    </style>
+    
+    <div class="port-section">
+        <div class="port-box">
+            <div class="port-name">Secure Remote Access</div>
+            <div class="port-number">SSH - Port 22</div>
+            <div class="port-number">SFTP - Port 22</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Domain Name Resolution</div>
+            <div class="port-number">DNS - Port 53</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Email Transfer</div>
+            <div class="port-number">SMTP - Port 25</div>
+            <div class="port-number">POP - Port 110</div>
+            <div class="port-number">IMAP - Port 143</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">File Transfer</div>
+            <div class="port-number">FTP - Ports 20, 21</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Remote Administration</div>
+            <div class="port-number">TELNET - Port 23</div>
+            <div class="port-number">RDP - Port 3389</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Network Management</div>
+            <div class="port-number">SNMP - Port 161</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Time Synchronization</div>
+            <div class="port-number">NTP - Port 123</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Web Services</div>
+            <div class="port-number">HTTP - Port 80</div>
+            <div class="port-number">HTTPS - Port 443</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">VoIP</div>
+            <div class="port-number">SIP - Ports 5060, 5061</div>
+            <div class="port-number">H.323 - Port 1720</div>
+        </div>
+        <div class="port-box">
+            <div class="port-name">Directory Services</div>
+            <div class="port-number">LDAP - Port 389</div>
+            <div class="port-number">LDAPS - Port 636</div>
+        </div>
+    </div>
+    
+	<h2>Protocols</h2>
+    <style>
+        tr:nth-child(even) {
+          background-color: #e5ebf1;
+        }
+        tr:nth-child(odd) {
+          background-color: #ffffff;
+        }
+    </style>
+
+	<table>
+		<tr>
+			<th>Protocol Type</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>ICMP</td>
+			<td>Internet Control Message Protocol is used for error reporting and diagnostics. It is commonly used by network devices to send error messages indicating that a requested service is not available or that a host or network is unreachable.</td>
+		</tr>
+		<tr>
+			<td>UDP</td>
+			<td>User Datagram Protocol is a connectionless protocol used for transmitting data over the network. It is often used for time-sensitive applications such as audio and video streaming.</td>
+		</tr>
+		<tr>
+			<td>TCP</td>
+			<td>Transmission Control Protocol is a connection-oriented protocol used for establishing reliable connections between devices. It is commonly used for web browsing, email, and file transfers.</td>
+		</tr>
+		<tr>
+			<td>IP</td>
+			<td>Internet Protocol is responsible for addressing and routing data packets across the network. It is the foundation of the internet and other network protocols are built on top of it.</td>
+		</tr>
+	</table>
+
+	<h2>Connections</h2>
+	<p>Network protocols can be either connection-oriented or connectionless. Connection-oriented protocols establish a reliable connection between devices before transmitting data, while connectionless protocols transmit data without establishing a connection first. TCP is an example of a connection-oriented protocol, while UDP is an example of a connectionless protocol.</p>
+</body>
+</html>
