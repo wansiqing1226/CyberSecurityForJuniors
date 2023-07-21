@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>OSI Model Sorting Game</title>
+	<style>
+		/* 增加拖放目标的样式 */
+		.drop-target {
+            height: 500px;
+            width: 100px;            
+            border: 2px dashed #aaa;
+            padding: 10px;margin: 10px;
+            float: left;
+            text-align: center;
+            display: flex; /* 增加 Flex 布局 */
+            justify-content: center; /* 水平居中 */
+}
+		/* 增加排序项的样式 */
+		.sort-item {
+			height: 20px;
+			width: 80px;
+			border: 2px solid #aaa;
+			padding: 10px;
+			margin: 10px;
+			float: left;
+			text-align: center;
+			cursor: move;
+			opacity: 0.8; /* 将拖拽项的透明度设置为0.8 */
+            display: flex; /* 增加 Flex 布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+		}
+		/* 增加彩虹颜色的样式 */
+		.application-layer {
+			background-color: rgba(255, 0, 0, 0.8);
+		}
+		.presentation-layer {
+			background-color: rgba(255, 165, 0, 0.8);
+		}
+		.session-layer {
+			background-color: rgba(255, 255, 0, 0.8);
+		}
+		.transport-layer {
+			background-color: rgba(0, 128, 0, 0.8);
+		}
+		.network-layer {
+			background-color: rgba(0, 0, 255, 0.8);
+		}
+		.data-link-layer {
+			background-color: rgba(75, 0, 130, 0.8);
+		}
+		.physical-layer {
+			background-color: rgba(238, 130, 238, 0.8);
+		}
+	</style>
+</head>
+<body>
+	<h1>OSI Model Sorting Game</h1>
+	<p>请将 OSI 模型中的七个层级按照正确的顺序排序。</p>
+	<div class="drop-target" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<p>排序区域</p>
+	</div>
+	<div class="sort-item application-layer" draggable="true" ondragstart="drag(event)" id="应用层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>应用层</p>
+	</div>
+	<div class="sort-item presentation-layer" draggable="true" ondragstart="drag(event)" id="表示层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>表示层</p>
+	</div>
+	<div class="sort-item session-layer" draggable="true" ondragstart="drag(event)" id="会话层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>会话层</p>
+	</div>
+	<div class="sort-item transport-layer" draggable="true" ondragstart="drag(event)" id="传输层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>传输层</p>
+	</div>
+	<div class="sort-item network-layer" draggable="true" ondragstart="drag(event)" id="网络层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>网络层</p>
+	</div>
+	<div class="sort-item data-link-layer" draggable="true" ondragstart="drag(event)" id="数据链路层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>数据链路层</p>
+	</div>
+	<div class="sort-item physical-layer" draggable="true" ondragstart="drag(event)" id="物理层"><!-- 将拖拽项的id设置为图层名称 -->
+		<p>物理层</p>
+	</div>
+	<script>
+		// 将拖放元素的 id 存储在数组中
+		var items = ["应用层", "表示层", "会话层", "传输层", "网络层", "数据链路层", "物理层"];
+
+		function allowDrop(event) {
+			event.preventDefault();
+		}
+
+		function drag(event) {
+			event.dataTransfer.setData("text", event.target.id); // 将拖拽元素的 id 存储在 dataTransfer 对象中
+		}
+
+		function drop(event) {
+			event.preventDefault();
+			var data = event.dataTransfer.getData("text"); // 获取拖拽元素的 id
+			if (items.indexOf(data) > -1) { // 检查拖拽元素的 id 是否在数组中
+				event.target.appendChild(document.getElementById(data)); // 将拖拽元素添加到放置区域
+			}
+		}
+	</script>
+
+    
+</body>
+</html>
