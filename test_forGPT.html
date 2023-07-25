@@ -1,118 +1,117 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>网络安全学习平台</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <title>IPv4/IPv6 Binary Converter</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            text-align: center;
-            color: #0e0d0d;
-            overflow: hidden;
-        }
-        a {
-            color: #008CBA;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .mask {
-            background-color: rgba(0, 0, 0, 0.5);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        .video-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1;
-        }
-        h1 {
-            margin-top: 50px;
-            font-size: 48px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            z-index: 2;
-            position: relative;
-        }
-        .subheading {
-            font-size: 24px;
-            font-weight: 400;
-            color: #f3f0f0;
-            margin-bottom: 50px;
-            z-index: 2;
-            position: relative;
-        }
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 50px auto;
-            width: 80%;
-            z-index: 2;
-            position: relative;
-        }
-        .steps div {
-    background: #fff;
-  padding: 20px;
-  margin: 20px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  z-index: 2; /* added z-index */
-}
-        .steps div:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .steps div:nth-child(1) {
-            background-color: #F9DCC4;
-        }
-        .steps div:nth-child(2) {
-            background-color: #c9e3b4;
-        }
-        .steps div:nth-child(3) {
-            background-color: #BCE2E8;
-        }
-        .steps div:nth-child(4) {
-            background-color: #efb2e0;
-        }
-        .footer {
-  margin-top: 50px;
-  font-size: 16px;
-  color: #fff;
-  z-index: 2;
-  position: relative;
-}
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
+      .yellow {
+        color: yellow;
+      }
+      .purple {
+        color: purple;
+      }
+      .orange {
+        color: orange;
+      }
+      .gray {
+        color: gray;
+      }
     </style>
-</head>
-<body>
-    <div class="mask"></div>
-    <video class="video-bg" autoplay loop muted>
-        <source src="background.mp4" type="video/mp4">
-    </video>
-    <h1>网络安全学习平台</h1>
-    <p class="subheading">用心只为初学者</p>
-
-    <div class="steps">
-      <div><a href="network.html">1. 网络</a></div>
-      <div><a href="security.html">2. 安全</a></div>
-      <div><a href="hacking.html">3. 道德黑客与渗透测试</a></div>
-      <div><a href="practice.html">4. 实践尝试平台</a></div>    
-    </div>
-
-    <div class="footer">
-        <p>不知道从哪里开始？<a href="test.html">点我</a></p>
-    </div>
-</body>
+  </head>
+  <body>
+    <h1>IPv4/IPv6 Binary Converter</h1>
+    <form onsubmit="convertAddress(); return false;">
+      <label for="inputAddress">Enter an IPv4 or IPv6 Address:</label>
+      <input type="text" id="inputAddress" name="inputAddress" maxlength="39" required>
+      <select id="addressType">
+        <option value="ipv4">IPv4</option>
+        <option value="ipv6">IPv6</option>
+      </select>
+      <button type="button" onclick="convertAddress()">Convert</button>
+    </form>
+    <br>
+    <label for="binaryAddress">Binary:</label>
+    <span id="binaryAddress"></span>
+    <script>
+      function convertAddress() {
+        var inputAddress = document.getElementById("inputAddress").value;
+        var addressType = document.getElementById("addressType").value;
+        var parts = inputAddress.split(":");
+        if (addressType === "ipv6" && parts.length === 8) {
+          // IPv6 address
+          var binary = "";
+          for (var i = 0; i < parts.length; i++) {
+            // Convert each 16-bit hex value to binary and pad with leading zeros
+            var hexValue = parts[i];
+            var binaryValue = ("0000000000000000" + parseInt(hexValue, 16).toString(2)).slice(-16);
+            // Color code each 16-bit value and concatenate into binary string
+            if (i === 0) {
+              binary += '<span class="red">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="green">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 1) {
+              binary += '<span class="blue">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="yellow">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 2) {
+              binary += '<span class="purple">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="orange">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 3) {
+              binary += '<span class="gray">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="red">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 4) {
+              binary += '<span class="green">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="blue">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 5) {
+              binary += '<span class="yellow">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="purple">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 6) {
+              binary += '<span class="orange">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="gray">' + binaryValue.slice(8) + '</span>';
+            } else if (i === 7) {
+              binary += '<span class="red">' + binaryValue.slice(0, 8) + '</span>';
+              binary += '<span class="green">' + binaryValue.slice(8) + '</span>';
+            }
+            // Add separator between values
+            if (i < parts.length - 1) {
+              binary += ":";
+            }
+          }
+          document.getElementById("binaryAddress").innerHTML = binary;
+        } else if (addressType === "ipv4" && parts.length === 4) {
+          // IPv4 address
+          var binary = "";
+          for (var i = 0; i < parts.length; i++) {
+            var octet = parseInt(parts[i], 10);
+            // Convert each octet to binary and pad with leading zeros
+            var binaryValue = ("00000000" + octet.toString(2)).slice(-8);
+            // Color code each octet and concatenate into binary string
+            if (i === 0) {
+              binary += '<span class="red">' + binaryValue + '</span>';
+            } else if (i === 1) {
+              binary += '<span class="green">' + binaryValue + '</span>';
+            } else if (i === 2) {
+              binary += '<span class="blue">' + binaryValue + '</span>';
+            } else if (i === 3) {
+              binary += '<span class="yellow">' + binaryValue + '</span>';
+            }
+            // Add separator between values
+            if (i < parts.length - 1) {
+              binary += ".";
+            }
+          }
+          document.getElementById("binaryAddress").innerHTML = binary;
+        } else {
+          // Invalid input
+          document.getElementById("binaryAddress").innerHTML = "Invalid address.";
+        }
+      }
+    </script>
+  </body>
 </html>

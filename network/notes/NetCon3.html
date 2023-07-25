@@ -52,11 +52,35 @@
 		.physical-layer {
 			background-color: rgba(238, 130, 238, 0.8);
 		}
+        
+        .guidance {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
 	</style>
 </head>
 <body>
-	<h1>OSI Model Sorting Game</h1>
-	<p>请将 OSI 模型中的七个层级按照正确的顺序排序。</p>
+	<h1>~OSI模型排序小游戏~</h1>
+	<h2>请将 OSI 模型中的七个层级按照正确的顺序排序</h2>
+    <div class="guidance">
+        <p>根据场景提示，自己猜一下吧
+            <br>你正在使用电子邮件应用程序发送一封电子邮件。
+            <br>第一步：需要将电子邮件数据转换为二进制信号，以便可以通过计算机网络进行传输。
+            <br>第二步：网卡将二进制信号转换为数据帧，并将其发送到网络中的下一个设备。
+            <br>第三步：路由器将数据帧转换为网络层分组，并将其发送到目标计算机。
+            <br>第四步：数据被分割成较小的块，并通过TCP或UDP协议进行传输。
+            <br>第五步：电子邮件应用程序与目标邮件服务器之间建立会话，并交换控制信息。
+            <br>第六步：电子邮件数据被转换为网络中可传输的格式。
+            <br>第七步：电子邮件应用程序将数据转换为电子邮件消息，并将其发送到目标邮件服务器。
+        </p>
+    </div>
 	<div class="drop-target" ondrop="drop(event)" ondragover="allowDrop(event)">
 		<p>排序区域</p>
 	</div>
@@ -81,9 +105,13 @@
 	<div class="sort-item physical-layer" draggable="true" ondragstart="drag(event)" id="物理层"><!-- 将拖拽项的id设置为图层名称 -->
 		<p>物理层</p>
 	</div>
+	<button onclick="showOrder()">显示顺序</button	>
 	<script>
 		// 将拖放元素的 id 存储在数组中
 		var items = ["应用层", "表示层", "会话层", "传输层", "网络层", "数据链路层", "物理层"];
+
+		// 正确的 OSI 模型层级顺序
+		var correctOrder = ["物理层", "数据链路层", "网络层", "传输层", "会话层", "表示层", "应用层"];
 
 		function allowDrop(event) {
 			event.preventDefault();
@@ -100,8 +128,70 @@
 				event.target.appendChild(document.getElementById(data)); // 将拖拽元素添加到放置区域
 			}
 		}
-	</script>
 
-    
+		function showOrder() {
+			alert("正确的 OSI 模型层级顺序为：\n\n" + correctOrder.join(", "));
+		}
+	</script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h2>OSI模型</h2>
+    <style>
+        tr:nth-child(even) {
+          background-color: #e5ebf1;
+        }
+        tr:nth-child(odd) {
+          background-color: #ffffff;
+        }
+    </style>
+    <table>
+      <tr>
+        <th>OSI模型层次</th>
+        <th>功能和描述</th>
+        <th>通信单元</th>
+        <th>协议</th>
+      </tr>
+      <tr>
+        <td>第七层：应用层</td>
+        <td>提供网络应用与用户之间的接口</td>
+        <td>数据</td>
+        <td>HTTP、FTP、SMTP、DNS、SSH等</td>
+      </tr>
+      <tr>
+        <td>第六层：表示层</td>
+        <td>数据格式化、数据加密、数据压缩和数据转换</td>
+        <td>数据</td>
+        <td>SSL、TLS、ASCII、JPEG、MPEG等</td>
+      </tr>
+      <tr>
+        <td>第五层：会话层</td>
+        <td>建立、管理和终止会话连接</td>
+        <td>数据</td>
+        <td>NetBIOS、RPC、SQL等</td>
+      </tr>
+      <tr>
+        <td>第四层：传输层</td>
+        <td>提供端到端的可靠数据传输</td>
+        <td>报文段（Segment）</td>
+        <td>TCP、UDP等</td>
+      </tr>
+      <tr>
+        <td>第三层：网络层</td>
+        <td>处理数据包在网络中的路由和转发</td>
+        <td>数据包（Packet）</td>
+        <td>IP、ICMP、OSPF、RIP等</td>
+      </tr>
+      <tr>
+        <td>第二层：数据链路层</td>
+        <td>直接连接网络中的设备，提供物理寻址、错误检测和纠正</td>
+        <td>帧（Frame）</td>
+        <td>Ethernet、PPP、HDLC等</td>
+      </tr>
+      <tr>
+        <td>第一层：物理层</td>
+        <td>硬件传输和接收原始比特流</td>
+        <td>比特（Bit）</td>
+        <td>Ethernet、USB、RS-232等</td>
+      </tr>
+    </table>
 </body>
 </html>
