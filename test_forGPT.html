@@ -1,117 +1,156 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>IPv4/IPv6 Binary Converter</title>
-    <style>
-      .red {
-        color: red;
-      }
-      .green {
-        color: green;
-      }
-      .blue {
-        color: blue;
-      }
-      .yellow {
-        color: yellow;
-      }
-      .purple {
-        color: purple;
-      }
-      .orange {
-        color: orange;
-      }
-      .gray {
-        color: gray;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>IPv4/IPv6 Binary Converter</h1>
-    <form onsubmit="convertAddress(); return false;">
-      <label for="inputAddress">Enter an IPv4 or IPv6 Address:</label>
-      <input type="text" id="inputAddress" name="inputAddress" maxlength="39" required>
-      <select id="addressType">
-        <option value="ipv4">IPv4</option>
-        <option value="ipv6">IPv6</option>
-      </select>
-      <button type="button" onclick="convertAddress()">Convert</button>
-    </form>
-    <br>
-    <label for="binaryAddress">Binary:</label>
-    <span id="binaryAddress"></span>
-    <script>
-      function convertAddress() {
-        var inputAddress = document.getElementById("inputAddress").value;
-        var addressType = document.getElementById("addressType").value;
-        var parts = inputAddress.split(":");
-        if (addressType === "ipv6" && parts.length === 8) {
-          // IPv6 address
-          var binary = "";
-          for (var i = 0; i < parts.length; i++) {
-            // Convert each 16-bit hex value to binary and pad with leading zeros
-            var hexValue = parts[i];
-            var binaryValue = ("0000000000000000" + parseInt(hexValue, 16).toString(2)).slice(-16);
-            // Color code each 16-bit value and concatenate into binary string
-            if (i === 0) {
-              binary += '<span class="red">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="green">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 1) {
-              binary += '<span class="blue">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="yellow">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 2) {
-              binary += '<span class="purple">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="orange">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 3) {
-              binary += '<span class="gray">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="red">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 4) {
-              binary += '<span class="green">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="blue">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 5) {
-              binary += '<span class="yellow">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="purple">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 6) {
-              binary += '<span class="orange">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="gray">' + binaryValue.slice(8) + '</span>';
-            } else if (i === 7) {
-              binary += '<span class="red">' + binaryValue.slice(0, 8) + '</span>';
-              binary += '<span class="green">' + binaryValue.slice(8) + '</span>';
-            }
-            // Add separator between values
-            if (i < parts.length - 1) {
-              binary += ":";
-            }
-          }
-          document.getElementById("binaryAddress").innerHTML = binary;
-        } else if (addressType === "ipv4" && parts.length === 4) {
-          // IPv4 address
-          var binary = "";
-          for (var i = 0; i < parts.length; i++) {
-            var octet = parseInt(parts[i], 10);
-            // Convert each octet to binary and pad with leading zeros
-            var binaryValue = ("00000000" + octet.toString(2)).slice(-8);
-            // Color code each octet and concatenate into binary string
-            if (i === 0) {
-              binary += '<span class="red">' + binaryValue + '</span>';
-            } else if (i === 1) {
-              binary += '<span class="green">' + binaryValue + '</span>';
-            } else if (i === 2) {
-              binary += '<span class="blue">' + binaryValue + '</span>';
-            } else if (i === 3) {
-              binary += '<span class="yellow">' + binaryValue + '</span>';
-            }
-            // Add separator between values
-            if (i < parts.length - 1) {
-              binary += ".";
-            }
-          }
-          document.getElementById("binaryAddress").innerHTML = binary;
-        } else {
-          // Invalid input
-          document.getElementById("binaryAddress").innerHTML = "Invalid address.";
-        }
-      }
-    </script>
-  </body>
+<head>
+	<title>IPv4/IPv6 Binary Converter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		
+		label {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		
+		input {
+			font-size: 16px;
+			padding: 5px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			border: 1px solid gray;
+			width: 300px;
+			box-sizing: border-box;
+		}
+		
+		button {
+			font-size: 20px;
+			padding: 10px 20px;
+			background-color: blue;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		.result {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		
+		.result label {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		
+		.result input {
+			font-size: 16px;
+			padding: 5px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			border: 1px solid gray;
+			width: 500px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<h1>IPv4/IPv6 Binary Converter</h1>
+	
+	<form>
+		<label>Enter IPv4 or IPv6 address:</label>
+		<input type="text" id="ip-address" placeholder="e.g. 192.0.2.1 or 2001:0db8:85a3:0000:0000:8a2e:0370:7334">
+		<button type="button" onclick="convert()">Convert</button>
+	</form>
+	
+	<div class="result">
+		<label>Binary format:</label>
+		<input type="text" id="binary" readonly>
+	</div>
+	
+	<script>
+		function ipv4_to_binary(ipv4) {
+			// 将IPv4地址转换为二进制格式
+			return ipv4.split('.').map(function(x) {
+				return parseInt(x).toString(2).padStart(8, '0');
+			}).join('');
+		}
+		
+		function ipv6_to_binary(ipv6) {
+			// 将IPv6地址转换为二进制格式
+			var regex = /^([\da-f]{1,4}:){7}[\da-f]{1,4}$/i;
+			if (!regex.test(ipv6)) {
+				return null;
+			}
+			var parts = ipv6.split(':');
+			var result = '';
+			for (var i = 0; i < parts.length; i++) {
+				var part = parts[i];
+				if (part === '') {
+					// 处理连续的冒号
+					for (var j = i + 1; j < parts.length; j++) {
+						part += ':0000';
+					}
+				} else {
+					part = '0000'.substr(part.length) + part;
+				}
+				result += part;
+			}
+			return result;
+		}
+		
+		function convert() {
+			// 获取输入的地址
+			var ipAddress = document.getElementById('ip-address').value;
+			
+			// 判断是IPv4还是IPv6地址
+			var isIPv4 = ipAddress.indexOf('.') !== -1;
+			var isIPv6 = ipAddress.indexOf(':') !== -1;
+			
+			// 转换为二进制格式
+			var binary;
+			if (isIPv4){
+				binary = ipv4_to_binary(ipAddress);
+			} else if (isIPv6) {
+				binary = ipv6_to_binary(ipAddress);
+			} else {
+				alert('Invalid IP address');
+				return;
+			}
+			
+			if (binary === null) {
+				alert('Invalid IPv6 address');
+				return;
+			}
+			
+			// 显示二进制格式
+			document.getElementById('binary').value = binary;
+		}
+		
+		// 添加按下回车键转换的事件监听器
+		document.getElementById('ip-address').addEventListener('keydown', function(event) {
+			if (event.key === 'Enter') {
+				event.preventDefault();
+				convert();
+			}
+		});
+	</script>
+</body>
 </html>
