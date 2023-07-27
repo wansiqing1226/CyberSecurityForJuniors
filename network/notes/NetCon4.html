@@ -12,6 +12,7 @@
         color: blue;
         position: relative;
     }
+
     .global-prefix::after {
         content: "Global Prefix";
         position: absolute;
@@ -21,6 +22,7 @@
         font-size: 12px;
         top: 40px;
     }
+
     .global-prefix::before {
         content: "";
         position: absolute;
@@ -31,11 +33,12 @@
         border-width: 0 10px 10px 10px;
         border-color: transparent transparent blue transparent;
     }
-    
+
     .subnet-id {
         color: red;
         position: relative;
     }
+
     .subnet-id::after {
         content: "Subnet ID";
         position: absolute;
@@ -45,6 +48,7 @@
         font-size: 12px;
         top: 40px;
     }
+
     .subnet-id::before {
         content: "";
         position: absolute;
@@ -55,11 +59,12 @@
         border-width: 0 10px 10px 10px;
         border-color: transparent transparent red transparent;
     }
-    
+
     .interface-id {
         color: green;
         position: relative;
     }
+
     .interface-id::after {
         content: "Interface ID";
         position: absolute;
@@ -69,6 +74,7 @@
         font-size: 12px;
         top: 40px;
     }
+
     .interface-id::before {
         content: "";
         position: absolute;
@@ -79,56 +85,82 @@
         border-width: 0 10px 10px 10px;
         border-color: transparent transparent green transparent;
     }
+
     label {
-			font-size: 20px;
-			margin-bottom: 10px;
-		}
-		
-		input {
-			font-size: 16px;
-			padding: 5px;
-			margin-bottom: 20px;
-			border-radius: 5px;
-			border: 1px solid gray;
-			width: 300px;
-			box-sizing: border-box;
-		}
-		
-		button {
-			font-size: 20px;
-			padding: 10px 20px;
-			background-color: blue;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		
-		.result {
-			display: flex;
-			flex-direction: column;
-			align-items: left;
-			margin-top: 10px;
-		}
-		
-		.result label {
-			font-size: 20px;
-			margin-bottom: 10px;
-		}
-		
-		.result input {
-			font-size: 16px;
-			padding: 5px;
-			margin-bottom: 20px;
-			border-radius: 5px;
-			border: 1px solid gray;
-			width: 500px;
-			box-sizing: border-box;
-		}
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 5px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        width: 300px;
+        box-sizing: border-box;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .result {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        margin-top: 10px;
+    }
+
+    .result label {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .result input {
+        font-size: 16px;
+        padding: 5px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        width: 500px;
+        box-sizing: border-box;
+    }
+
+    .background {
+        transform: rotate(-10deg);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20%;
+        /* 修改为您想要的宽度 */
+        height: auto;
+        overflow: hidden;
+        opacity: 60%;
+        z-index: -1;
+    }
+
+    .background img {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
 </style>
 
 
 <body>
+    <div class="background">
+        <img src="BG_cat.png" alt="background image">
+    </div>
     <h1>欢迎来到IP的世界！</h1>
     <p>IPv4是互联网协议版本4的简称，是Internet上最常用的协议之一。IPv4地址是由32个二进制位组成的，通常表示为四个十进制数，每个数之间用点号分隔，例如192.168.0.1。</p>
     <h2>IPv4分类</h2>
@@ -158,13 +190,18 @@
     <h2>CIDR</h2>
     <p>CIDR是无类别域间路由的缩写，它是一种更有效的IP地址分配方法。CIDR将IP地址分成前缀和后缀两部分，前缀表示网络部分，后缀表示主机部分。CIDR的出现使得IP地址的利用更加有效，也方便了网络管理员的管理。</p>
     <h3>IP地址拆解</h3>
-    <p>让我们首先剖析这个示例 IP 地址。由句点“174.16.0.0”分隔的数字是基础二进制数字的数字表示（例如“10101110”由“174”表示）。前三个数字通常代表网络位（用于标识网络/子网的地址），最后一个数字通常代表主机位（用于标识主机/目标的地址）。</p>
+    <p>让我们首先剖析这个示例 IP
+        地址。由句点“174.16.0.0”分隔的数字是基础二进制数字的数字表示（例如“10101110”由“174”表示）。前三个数字通常代表网络位（用于标识网络/子网的地址），最后一个数字通常代表主机位（用于标识主机/目标的地址）。
+    </p>
     <img src="ipv4_host.webp" alt="IPv4 Host Image" width="60%" height="60%">
     <h3>CIDR标记法</h3>
-    <p>CIDR 表示法通过一些巧妙的数学运算使我们免于耗尽 IP 地址。理解 CIDR 的一个简单方法是将末尾的符号视为将分配给网络的位数。在此示例中，“/24”表示前 24 位分配给网络 (10101110.00010000.00000000)，其余 8 位将分配给主机 (.00000000)。“/24”的另一种写法是“11111111.11111111.11111111.00000000”，其中 1 代表前 24 位为“on”。也可以写为“255.255.255.0”，称为“子网掩码”。</p>
+    <p>CIDR 表示法通过一些巧妙的数学运算使我们免于耗尽 IP 地址。理解 CIDR 的一个简单方法是将末尾的符号视为将分配给网络的位数。在此示例中，“/24”表示前 24 位分配给网络
+        (10101110.00010000.00000000)，其余 8 位将分配给主机 (.00000000)。“/24”的另一种写法是“11111111.11111111.11111111.00000000”，其中 1 代表前
+        24 位为“on”。也可以写为“255.255.255.0”，称为“子网掩码”。</p>
     <img src="CIDR_notation.webp" alt="IPv4 Host Image" width="60%" height="60%">
     <h3>CIDR应用</h3>
-    <p> CIDR是一种IP地址分配方案，使用CIDR前缀来表示网络的地址和子网掩码信息。如果将CIDR前缀从/24变为/26，网络前缀将增加2位，主机地址将减少2位。更小的CIDR前缀提供更多的网络，但每个网络具有更少的主机地址，相反，更大的CIDR前缀提供更多的主机地址，但每个网络具有更少的IP地址。CIDR前缀可以根据需要进行更改，以便更好地满足实际需求。</p>
+    <p> CIDR是一种IP地址分配方案，使用CIDR前缀来表示网络的地址和子网掩码信息。如果将CIDR前缀从/24变为/26，网络前缀将增加2位，主机地址将减少2位。更小的CIDR前缀提供更多的网络，但每个网络具有更少的主机地址，相反，更大的CIDR前缀提供更多的主机地址，但每个网络具有更少的IP地址。CIDR前缀可以根据需要进行更改，以便更好地满足实际需求。
+    </p>
     <img src="CIDR_notation.webp" alt="IPv4 Host Image" width="60%" height="60%">
 
     <h2>IPv6</h2>
@@ -174,9 +211,23 @@
     </p>
     <p>IPv6地址通常由三部分组成：全局前缀（Global Prefix）、子网ID（Subnet ID）和接口ID（Interface ID）。</p>
 
-    <p>IPv6地址：<span class="global-prefix">2001:0db8:0000:0000:</span><span class="subnet-id">0000:</span><span class="interface-id">ff00:0042:8329</span></p>
-    
+    <p>IPv6地址：<span class="global-prefix">2001:0db8:0000:0000:</span><span class="subnet-id">0000:</span><span
+            class="interface-id">ff00:0042:8329</span></p>
+
     <br>
+
+    <h2>IPv4/IPv6二进制转换</h2>
+    <form>
+        <label>输入IPv4 或 IPv6 地址:</label>
+        <input type="text" id="ip-address" placeholder="请输入地址">
+        <button type="button" onclick="convert()">Convert</button>
+    </form>
+
+    <div class="result">
+        <label>二进制形式:</label>
+        <input type="text" id="binary" readonly>
+    </div>
+
     <p>IPv4 地址示例：</p>
     <ul>
         <li>192.168.0.1</li>
@@ -192,85 +243,73 @@
         <li>fe80::1</li>
     </ul>
 
-    <h1>IPv4/IPv6二进制转换</h1>
-    <form>
-		<label>输入IPv4 或 IPv6 地址:</label>
-		<input type="text" id="ip-address" placeholder="请输入地址">
-		<button type="button" onclick="convert()">Convert</button>
-	</form>
-	
-	<div class="result">
-		<label>二进制形式:</label>
-		<input type="text" id="binary" readonly>
-	</div>
-	
-	<script>
-		function ipv4_to_binary(ipv4) {
-			// 将IPv4地址转换为二进制格式
-			return ipv4.split('.').map(function(x) {
-				return parseInt(x).toString(2).padStart(8, '0');
-			}).join('');
-		}
-		
-		function ipv6_to_binary(ipv6) {
-			// 将IPv6地址转换为二进制格式
-			var regex = /^([\da-f]{1,4}:){7}[\da-f]{1,4}$/i;
-			if (!regex.test(ipv6)) {
-				return null;
-			}
-			var parts = ipv6.split(':');
-			var result = '';
-			for (var i = 0; i < parts.length; i++) {
-				var part = parts[i];
-				if (part === '') {
-					// 处理连续的冒号
-					for (var j = i + 1; j < parts.length; j++) {
-						part += ':0000';
-					}
-				} else {
-					part = '0000'.substr(part.length) + part;
-				}
-				result += part;
-			}
-			return result;
-		}
-		
-		function convert() {
-			// 获取输入的地址
-			var ipAddress = document.getElementById('ip-address').value;
-			
-			// 判断是IPv4还是IPv6地址
-			var isIPv4 = ipAddress.indexOf('.') !== -1;
-			var isIPv6 = ipAddress.indexOf(':') !== -1;
-			
-			// 转换为二进制格式
-			var binary;
-			if (isIPv4){
-				binary = ipv4_to_binary(ipAddress);
-			} else if (isIPv6) {
-				binary = ipv6_to_binary(ipAddress);
-			} else {
-				alert('Invalid IP address');
-				return;
-			}
-			
-			if (binary === null) {
-				alert('Invalid IPv6 address');
-				return;
-			}
-			
-			// 显示二进制格式
-			document.getElementById('binary').value = binary;
-		}
-		
-		// 添加按下回车键转换的事件监听器
-		document.getElementById('ip-address').addEventListener('keydown', function(event) {
-			if (event.key === 'Enter') {
-				event.preventDefault();
-				convert();
-			}
-		});
-	</script>
+    <script>
+        function ipv4_to_binary(ipv4) {
+            // 将IPv4地址转换为二进制格式
+            return ipv4.split('.').map(function (x) {
+                return parseInt(x).toString(2).padStart(8, '0');
+            }).join('');
+        }
+
+        function ipv6_to_binary(ipv6) {
+            // 将IPv6地址转换为二进制格式
+            var regex = /^([\da-f]{1,4}:){7}[\da-f]{1,4}$/i;
+            if (!regex.test(ipv6)) {
+                return null;
+            }
+            var parts = ipv6.split(':');
+            var result = '';
+            for (var i = 0; i < parts.length; i++) {
+                var part = parts[i];
+                if (part === '') {
+                    // 处理连续的冒号
+                    for (var j = i + 1; j < parts.length; j++) {
+                        part += ':0000';
+                    }
+                } else {
+                    part = '0000'.substr(part.length) + part;
+                }
+                result += part;
+            }
+            return result;
+        }
+
+        function convert() {
+            // 获取输入的地址
+            var ipAddress = document.getElementById('ip-address').value;
+
+            // 判断是IPv4还是IPv6地址
+            var isIPv4 = ipAddress.indexOf('.') !== -1;
+            var isIPv6 = ipAddress.indexOf(':') !== -1;
+
+            // 转换为二进制格式
+            var binary;
+            if (isIPv4) {
+                binary = ipv4_to_binary(ipAddress);
+            } else if (isIPv6) {
+                binary = ipv6_to_binary(ipAddress);
+            } else {
+                alert('Invalid IP address');
+                return;
+            }
+
+            if (binary === null) {
+                alert('Invalid IPv6 address');
+                return;
+            }
+
+            // 显示二进制格式
+            document.getElementById('binary').value = binary;
+        }
+
+        // 添加按下回车键转换的事件监听器
+        document.getElementById('ip-address').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                convert();
+            }
+        });
+    </script>
 
 </body>
 

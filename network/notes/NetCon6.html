@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gold Dash with Text</title>
+  <style>
+    .container {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      width: 600px;
+    }
+    .gold-dash {
+      color: gold;
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    .gold-dash-text {
+      position: absolute;
+      top: 100%;
+      font-size: medium;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .img-left {
+      position: absolute;
+      top: 60%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    .img-right {
+      position: absolute;
+      top: 60%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+    <h1>TCP</h1>
+  <div class="container">
+    <img src="client.png" alt="Left Image" class="img-left" width="30%">
+    <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">SYN</span>&#8212;&gt;</span></h1>
+    <h1><span class="gold-dash">&lt;&#8212;&#8212;<span class="gold-dash-text">SYN-ACK</span>&#8212;&#8212;</span></h1>
+    <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">ACK</span>&#8212;&gt;</span></h1>
+    <img src="server.png" alt="Right Image" class="img-right" width="30%">
+  </div>
+
+  <img src="unicast.png" alt="Unicast Image" width="20%" height="20%">
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Routing and Switching</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		#switch-section, #router-section {
+			display: none;
+		}
+
+		.active {
+			background-color: #ddd;
+			color: #333;
+		}
+
+		.content {
+			padding: 10px;
+			margin: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		.switch-content, .router-content {
+			display: none;
+		}
+	</style>
+	<script>
+		$(document).ready(function() {
+			$("#switch-btn").click(function() {
+				$("#switch-section").show();
+				$("#router-section").hide();
+				$(this).addClass("active");
+				$("#router-btn").removeClass("active");
+			});
+
+			$("#router-btn").click(function() {
+				$("#router-section").show();
+				$("#switch-section").hide();
+				$(this).addClass("active");
+				$("#switch-btn").removeClass("active");
+			});
+
+			$(".switch-button").click(function() {
+				$(this).siblings(".switch-content").toggle();
+			});
+
+			$(".router-button").click(function() {
+				$(this).siblings(".router-content").toggle();
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Routing and Switching</h1>
+	<div>
+		<button id="switch-btn" class="active">Switch</button>
+		<button id="router-btn">Router</button>
+	</div>
+	<div id="switch-section">
+		<h2>Switching Protocols</h2>
+		<ul>
+			<li>
+				<button class="switch-button">Spanning Tree Protocol (STP)</button>
+				<div class="switch-content content">
+					<p>STP is a layer 2 protocol used to prevent loops in a network topology.</p>
+				</div>
+			</li>
+			<li>
+				<button class="switch-button">Virtual Local Area Network (VLAN)</button>
+				<div class="switch-content content">
+					<p>VLAN is a method of creating logical networks within a physical network.</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="router-section">
+		<h2>Routing Protocols</h2>
+		<ul>
+			<li>
+				<button class="router-button">Distance-vector routing protocols</button>
+				<div class="router-content content">
+					<ul>
+						<li>RIP</li>
+						<li>EIGRP</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<button class="router-button">Link-state routing protocols</button>
+				<div class="router-content content">
+					<ul>
+						<li>OSPF</li>
+						<li>Hybrid</li>
+						<li>BGP</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<h2>Routing Types</h2>
+		<ul>
+			<li>
+				<button class="router-button">Static</button>
+				<div class="router-content content">
+					<ul>
+						<li>Routes are manually configured</li>
+						<li>No automatic updates</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<button class="router-button">Dynamic</button>
+				<div class="router-content content">
+					<ul>
+						<li>Routes are learned and updated automatically</li>
+						<li>Examples: RIP, EIGRP, OSPF, BGP</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<button class="router-button">Default</button>
+				<div class="router-content content">
+					<ul>
+						<li>Used when no other route to a destination is known</li>
+						<li>Default route is used as a last resort</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
+//https://www.javatpoint.com/distance-vector-routing-algorithm
