@@ -1,69 +1,150 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>六个圆圈示例</title>
-	<style>
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			height: 500px;
-		}
-		.row {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 10px;
-		}
-		.circle {
-			display: inline-block;
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-			border: 2px solid black;
-			margin-right: 10px;
-		}
-		.red {
-			background-color: red;
-		}
-		.green {
-			background-color: green;
-		}
-		.arrow {
-			position: relative;
-		}
-		.arrow:before {
-			content: "";
-			position: absolute;
-			top: 50%;
-			left: -20px;
-			transform: translateY(-50%);
-			border-top: 2px solid black;
-			border-right: 2px solid black;
-			width: 20px;
-			height: 20px;
-			transform: rotate(-45deg);
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="circle red"></div>
-			<div class="circle"></div>
-      <br>
-		</div>
-		<div class="row">
-			<div class="circle green arrow"></div>
-		</div>
-		<div class="row">
-			<div class="circle"></div>
-		</div>
-    <div class="row">
-			<div class="circle"></div>
-      <br>
-			<div class="circle"></div>
-		</div>
-	</div>
-</body>
-</html>
+<table>
+	<thead>
+	  <tr>
+		<th>Protocol</th>
+		<th>Name</th>
+		<th>Port(s)</th>
+		<th>Transport Protocol(s)</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td>FTP</td>
+		<td>File Transfer Protocol</td>
+		<td>21</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>SFTP</td>
+		<td>Secure FTP</td>
+		<td>22</td>
+		<td>SCTP, TCP</td>
+	  </tr>
+	  <tr>
+		<td>FTPS</td>
+		<td>FTP Secure</td>
+		<td>443</td>
+		<td>FTP</td>
+	  </tr>
+	  <tr>
+		<td>TFTP</td>
+		<td>Trivial FTP</td>
+		<td>69</td>
+		<td>UDP</td>
+	  </tr>
+	  <tr>
+		<td>Telnet</td>
+		<td>-</td>
+		<td>23</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>HTTP</td>
+		<td>Hyper Text Transfer Protocol</td>
+		<td>80</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>HTTPS</td>
+		<td>HTTP Secure</td>
+		<td>443</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>SCP</td>
+		<td>Secure Copy</td>
+		<td>22</td>
+		<td>SCTP, TCP</td>
+	  </tr>
+	  <tr>
+		<td>SSH</td>
+		<td>Secure SHell</td>
+		<td>22</td>
+		<td>SCTP, TCP</td>
+	  </tr>
+	  <tr>
+		<td>SMTP</td>
+		<td>Simple Mail Transfer Protocol</td>
+		<td>25</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>DNS</td>
+		<td>Domain Name Service</td>
+		<td>53</td>
+		<td>UDP</td>
+	  </tr>
+	  <tr>
+		<td>SNMP</td>
+		<td>Simple Network Management Protocol</td>
+		<td>161</td>
+		<td>TCP, UDP</td>
+	  </tr>
+	  <tr>
+		<td>SNMP Trap</td>
+		<td>Simple Network Management Protocol Trap</td>
+		<td>162</td>
+		<td>TCP, UDP</td>
+	  </tr>
+	  <tr>
+		<td>ISAKMP</td>
+		<td>VPN - Internet Security Association and Key Management Protocol</td>
+		<td>500</td>
+		<td>UDP</td>
+	  </tr>
+	  <tr>
+		<td>TACACS</td>
+		<td>Terminal Access Controller Access-Control System</td>
+		<td>49</td>
+		<td>TCP, UDP</td>
+	  </tr>
+	  <tr>
+		<td>POP3</td>
+		<td>Post Office Protocol version 3</td>
+		<td>110</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>NNTP</td>
+		<td>Network News Transfer Protocol</td>
+		<td>119</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>IMAP4</td>
+		<td>Internet Message Access Protocol version 4</td>
+		<td>143</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>Kerberos</td>
+		<td>-</td>
+		<td>88</td>
+		<td>UDP</td>
+	  </tr>
+	  <tr>
+		<td>Syslog</td>
+		<td>-</td>
+		<td>514</td>
+		<td>TCP, UDP</td>
+	  </tr>
+	  <tr>
+		<td>L2TP</td>
+		<td>Layer 2 Tunneling Protocol</td>
+		<td>1701</td>
+		<td>UDP</td>
+	  </tr>
+	  <tr>
+		<td>PPTP</td>
+		<td>Point-to-Point Tunneling Protocol</td>
+		<td>1723</td>
+		<td>TCP</td>
+	  </tr>
+	  <tr>
+		<td>RDP</td>
+		<td>Remote Desktop Protocol</td>
+		<td>3389</td>
+		<td>TCP, UDP</td>
+	  </tr>
+	</tbody>
+  </table>

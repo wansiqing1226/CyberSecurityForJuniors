@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Network Troubleshooting Methodology</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.14.0/flowchart.min.js"></script>
+  </head>
+  <body>
+    <h1> Given a scenario, implement the following network troubleshooting methodology</h1>
+    <h2>Given below is the sequence of steps recommended to be following is solving a network problem:</h2>
+    <div id="diagram"></div>
+    <script>
+      var diagram = flowchart.parse('st=>start: Information Gathering\n' +
+        'op1=>operation: Identify Affected Areas\n' +
+        'op2=>operation: Determine Changes\n' +
+        'op3=>operation: Establish Most Probable Cause\n' +
+        'op4=>operation: Determine Escalation\n' +
+        'op5=>operation: Create Action Plan and Solution\n' +
+        'op6=>operation: Implement and Test Solution\n' +
+        'op7=>operation: Identify Results and Effects\n' +
+        'op8=>operation: Document Solution and Process\n' +
+        'st->op1->op2->op3->op4->op5->op6->op7->op8');
+      diagram.drawSVG('diagram');
+    </script>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Gold Dash with Text</title>
   <style>
@@ -9,6 +10,7 @@
       text-align: center;
       width: 600px;
     }
+
     .gold-dash {
       color: gold;
       position: relative;
@@ -16,17 +18,23 @@
       text-align: center;
       animation: blink 1s infinite;
     }
+
     @keyframes blink {
       0% {
         opacity: 0;
       }
+
       50% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
       }
     }
+
+
+
     .gold-dash-text {
       position: absolute;
       top: 100%;
@@ -34,30 +42,269 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
     .img-left {
       position: absolute;
-      top: 60%;
+      top: 30%;
       left: 0;
       transform: translateY(-50%);
     }
+
     .img-right {
       position: absolute;
-      top: 60%;
+      top: 30%;
       right: 0;
       transform: translateY(-50%);
     }
   </style>
 </head>
+
 <body>
-    <h1>TCP</h1>
+  <h1>TCP</h1>
   <div class="container">
     <img src="client.png" alt="Left Image" class="img-left" width="30%">
     <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">SYN</span>&#8212;&gt;</span></h1>
     <h1><span class="gold-dash">&lt;&#8212;&#8212;<span class="gold-dash-text">SYN-ACK</span>&#8212;&#8212;</span></h1>
     <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">ACK</span>&#8212;&gt;</span></h1>
     <img src="server.png" alt="Right Image" class="img-right" width="30%">
+    <img src="unicast.png" alt="Unicast Image" width="20%" height="20%">
   </div>
 
-  <img src="unicast.png" alt="Unicast Image" width="20%" height="20%">
+  <h1>UDP</h1>
+
+  <div class="container">
+    <img src="client.png" alt="Left Image" class="img-left" width="30%">
+    <h1><span class="gold-dash">&lt;&#8212;&#8212;<span class="gold-dash-text">REQUEST</span>&#8212;&#8212;</span></h1>
+    <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">RESPONSE</span>&#8212;&gt;</span></h1>
+    <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">RESPONSE</span>&#8212;&gt;</span></h1>
+    <h1><span class="gold-dash">&#8212;&#8212;<span class="gold-dash-text">RESPONSE</span>&#8212;&gt;</span></h1>
+    <img src="server.png" alt="Right Image" class="img-right" width="30%">
+    <img src="two_cast.png" alt="Two_cast Image" width="60%" height="60%">
+  </div>
+
+  <h1>TCP和UDP区别</h1>
+
+
+  <style>
+    tr:nth-child(even) {
+      background-color: #e5ebf1;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+  </style>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th> <!-- 第一行第一列空白 -->
+        <th>TCP</th>
+        <th>UDP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th style="font-weight: bold;">连接类型</th> <!-- 第一列加粗 -->
+        <td>面向连接——设备必须在传输数据（包括握手）之前建立连接，并在传输后关闭连接。</td>
+        <td>无连接——发送数据不需要连接和握手。</td>
+      </tr>
+      <tr>
+        <th>可靠性</th>
+        <td>可靠——保证数据包的传送。</td>
+        <td>不可靠——无法保证数据报的传送。</td>
+      </tr>
+      <tr>
+        <th>通讯信息类型</th>
+        <td>有状态——客户端和服务器保存有关会话的信息。</td>
+        <td>无状态——服务器不保留有关会话的任何信息。</td>
+      </tr>
+      <tr>
+        <th>标头尺寸</th>
+        <td>变量 — 20-60 字节标头长度。</td>
+        <td>固定 — 8 字节。</td>
+      </tr>
+      <tr>
+        <th>速度</th>
+        <td>比 UDP 慢，因为它遵循许多步骤来确保准确性。</td>
+        <td>比 TCP 更快，因为它是一个更简单的协议。 </td>
+
+      </tr>
+      <tr>
+        <th>顺序</th>
+        <td>所有数据包均按特定顺序传送给接收者。</td>
+        <td>数据报的传送没有特定的顺序。</td>
+
+      </tr>
+      <tr>
+        <th>错误检测机制</th>
+        <td>提供广泛的错误检测：流量控制;拥塞控制;数据确认。</td>
+        <td>提供基本错误检测：校验</td>
+
+      </tr>
+      <tr>
+        <th>协议</th>
+        <td>HTTP、HTTPs、FTP、SMTP 和 Telnet。</td>
+        <td>DNS、DHCP、TFTP、SNMP、RIP 和 VoIP。</td>
+      </tr>
+      <tr>
+        <th>协议</th>
+        <td>网页浏览。文件传输。电子邮件（SMTP、IMAP/POP）</td>
+        <td>VPN。视频和音乐流。在线游戏、多人游戏。现场直播和视频会议。域名系统 (DNS) 查询。IP 语音 (VoIP)。</td>
+      </tr>
+    </tbody>
+  </table>
+
 </body>
+<h1>常见TCP/UDP端口</h1>
+<table>
+  <thead>
+    <tr>
+      <th>协议</th>
+      <th>名称</th>
+      <th>端口号</th>
+      <th>传输协议</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FTP</td>
+      <td>文件传输协议</td>
+      <td>21</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>SFTP</td>
+      <td>安全文件传输协议</td>
+      <td>22</td>
+      <td>SCTP, TCP</td>
+    </tr>
+    <tr>
+      <td>FTPS</td>
+      <td>FTP安全传输协议</td>
+      <td>443</td>
+      <td>FTP</td>
+    </tr>
+    <tr>
+      <td>TFTP</td>
+      <td>简单文件传输协议</td>
+      <td>69</td>
+      <td>UDP</td>
+    </tr>
+    <tr>
+      <td>Telnet</td>
+      <td>-</td>
+      <td>23</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>HTTP</td>
+      <td>超文本传输协议</td>
+      <td>80</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>HTTPS</td>
+      <td>HTTP安全传输协议</td>
+      <td>443</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>SCP</td>
+      <td>安全拷贝协议</td>
+      <td>22</td>
+      <td>SCTP, TCP</td>
+    </tr>
+    <tr>
+      <td>SSH</td>
+      <td>安全外壳协议</td>
+      <td>22</td>
+      <td>SCTP, TCP</td>
+    </tr>
+    <tr>
+      <td>SMTP</td>
+      <td>简单邮件传输协议</td>
+      <td>25</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>DNS</td>
+      <td>域名系统</td>
+      <td>53</td>
+      <td>UDP</td>
+    </tr>
+    <tr>
+      <td>SNMP</td>
+      <td>简单网络管理协议</td>
+      <td>161</td>
+      <td>TCP, UDP</td>
+    </tr>
+    <tr>
+      <td>SNMP Trap</td>
+      <td>简单网络管理协议陷阱</td>
+      <td>162</td>
+      <td>TCP, UDP</td>
+    </tr>
+    <tr>
+      <td>ISAKMP</td>
+      <td>VPN - 互联网安全关联和密钥管理协议</td>
+      <td>500</td>
+      <td>UDP</td>
+    </tr>
+    <tr>
+      <td>TACACS</td>
+      <td>终端访问控制器访问控制系统</td>
+      <td>49</td>
+      <td>TCP, UDP</td>
+    </tr>
+    <tr>
+      <td>POP3</td>
+      <td>邮局协议版本3</td>
+      <td>110</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>NNTP</td>
+      <td>网络新闻传输协议</td>
+      <td>119</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>IMAP4</td>
+      <td>Internet邮件访问协议版本4</td>
+      <td>143</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>Kerberos</td>
+      <td>-</td>
+      <td>88</td>
+      <td>UDP</td>
+    </tr>
+    <tr>
+      <td>Syslog</td>
+      <td>-</td>
+      <td>514</td>
+      <td>TCP, UDP</td>
+    </tr>
+    <tr>
+      <td>L2TP</td>
+      <td>第二层隧道协议</td>
+      <td>1701</td>
+      <td>UDP</td>
+    </tr>
+    <tr>
+      <td>PPTP</td>
+      <td>点对点隧道协议</td>
+      <td>1723</td>
+      <td>TCP</td>
+    </tr>
+    <tr>
+      <td>RDP</td>
+      <td>远程桌面协议</td>
+      <td>3389</td>
+      <td>TCP, UDP</td>
+    </tr>
+  </tbody>
+</table>
 </html>
