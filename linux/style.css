@@ -1,0 +1,53 @@
+body {
+    background-color: #282c34;
+    color: #abb2bf;
+    font-family: Consolas, monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.output {
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #1e2127;
+    border-radius: 5px;
+    border: 1px solid #abb2bf;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.prompt {
+    color: #61afef;
+    padding-right: 10px;
+}
+
+.command {
+    flex-grow: 1;
+    background-color: transparent;
+    color: #abb2bf;
+    border: none;
+    font-family: Consolas, monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    outline: none;
+}
+
+.command:focus {
+    border: none;
+    outline: none;
+}

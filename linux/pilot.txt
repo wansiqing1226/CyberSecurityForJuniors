@@ -1,0 +1,103 @@
+当然，以下是一个完整的剧情，涵盖了所有指令，让你可以将其用于你的Linux指令剧情闯关游戏。
+
+剧情：
+
+你是一个名叫“Linux之子”的年轻黑客，你的任务是入侵一家大型企业的服务器，并窃取关键数据。你将需要在不同的场景中使用不同的Linux指令来完成这些任务。
+
+第一关：创建用户
+
+你需要创建一个新用户，并将其添加到sudoers组中。你需要使用以下指令完成此任务：
+
+```
+sudo useradd -m -s /bin/bash newuser
+sudo passwd newuser
+sudo usermod -aG sudo newuser
+```
+
+第二关：文件管理
+
+你需要在文件系统中创建一个新目录，并将一些文件移动到该目录中。你需要使用以下指令完成此任务：
+
+```
+mkdir newdir
+touch file1.txt file2.txt file3.txt
+mv file1.txt file2.txt newdir/
+cp file3.txt newdir/
+```
+
+第三关：文件编辑
+
+你需要编辑一个配置文件，并将其保存到新目录中。你需要使用以下指令完成此任务：
+
+```
+nano config.txt
+# 编辑配置文件
+Ctrl+X # 保存并退出nano编辑器
+mv config.txt newdir/
+```
+
+第四关：压缩和解压缩文件
+
+你需要将新目录压缩成一个tar.gz文件，并将其上传到FTP服务器。你需要使用以下指令完成此任务：
+
+```
+tar -czvf newdir.tar.gz newdir/
+ftp ftp.example.com
+# 登录FTP服务器
+put newdir.tar.gz
+```
+
+第五关：远程访问服务器
+
+你需要使用ssh指令连接到远程服务器，并在该服务器上运行一些命令。你需要使用以下指令完成此任务：
+
+```
+ssh username@remotehost
+# 输入密码
+ls
+date
+exit
+```
+
+第六关：查找文件
+
+你需要查找一个特定的文件，并将其删除。你需要使用以下指令完成此任务：
+
+```
+locate myfile.txt
+# 找到文件的位置
+sudo rm /path/to/myfile.txt
+```
+
+第七关：定时任务
+
+你需要设置一个定时任务，以便在每天早上6点运行某个命令。你需要使用以下指令完成此任务：
+
+```
+crontab -e
+# 编辑定时任务
+0 6 * * * /path/to/mycommand
+```
+
+第八关：系统信息
+
+你需要查看有关系统的详细信息，如CPU、内存和磁盘使用情况。你需要使用以下指令完成此任务：
+
+```
+top
+# 查看系统资源使用情况
+df -h
+# 查看磁盘使用情况
+```
+
+第九关：修改文件权限
+
+你需要修改一个文件的权限，使其只能由特定用户访问。你需要使用以下指令完成此任务：
+
+```
+chmod 600 /path/to/myfile.txt
+```
+
+第十关：完成任务
+
+恭喜，你已经完成了所有任务！你现在是一名真正的Linux勇士，可以自信地处理各种Linux系统管理任务。
