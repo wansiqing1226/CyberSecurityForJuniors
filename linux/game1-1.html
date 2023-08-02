@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>终端仿真器</title>
-  <link rel="stylesheet" href="style.css">
+    <title>HackGame - 终端游戏</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="terminal">
-    <div class="output" id="output"></div>
-    <div class="input">
-      <span class="prompt">$</span>
-      <input type="text" class="command" id="command" autofocus>
+    <div class="terminal">
+      <meta charset="UTF-8">
+        <pre id="output">_      _       
+ | |    (_)       
+ | |     _ _ __   _   _ _   _ 
+ | |    | | '_ \ | | | |\ \/ /
+ | |____| | | | || |_| | >  <
+ |______|_|_| |_| \___/ /_/\_\
+你是一个神秘的年轻黑客，人称“Linux之神”。
+你的任务是入侵一家庞大而神秘的企业的服务器，窃取其核心机密数据。
+这个任务绝非易事，需要你运用你的高超技巧和精湛技艺，使用各种隐秘、高效的Linux指令，
+穿梭于服务器的各个角落，避开守卫的眼线，找到并窃取那些关键数据。
+你将面临着前所未有的挑战，需要在各种场景下迅速反应，冷静应对，才能成功完成这个任务。</pre>
+        <div class="input-wrapper">
+            <span class="prompt">$</span>
+            <input type="text" id="input" autofocus />
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script1-1.js"></script>
 </body>
 </html>
