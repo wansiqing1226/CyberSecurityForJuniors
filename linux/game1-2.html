@@ -7,21 +7,25 @@
 </head>
 <body>
     <div class="terminal">
-        <pre id="output">_      _       
+        <pre id="output">
+            
+  _      _       
  | |    (_)       
  | |     _ _ __   _   _ _   _ 
  | |    | | '_ \ | | | |\ \/ /
  | |____| | | | || |_| | >  <
  |______|_|_| |_| \___/ /_/\_\
- 第一关，你需要创建一个新用户并将其添加到sudoers组中。
- 这不仅仅是为了获得系统的完全控制，更是为了拥有更多的操作权限，让你能够更好地保护你的系统和数据。
- 但是，黑暗联盟不会坐以待毙，他们将会采取一切手段，让你的任务变得更加困难。</pre>
+ 第二关，你需要在文件系统中创建一个新目录，并将一些关键文件移动到该目录中。
+ 这将确保你的文件得到更好的保护，并为你的小组赢得时间和优势。
+ 但是，黑暗联盟并不会让你如愿以偿。
+ 他们将会派出他们最顶尖的黑客，试图入侵你的系统，摧毁你的文件。</pre>
         <div class="input-wrapper">
             <span class="prompt">$</span>
             <input type="text" id="input" autofocus />
         </div>
     </div>
-    <script src="script1-1.js"></script>
+    <script src="script1-2-.js"></script>
+    <button id="prevButton">上一关</button>
     <button id="nextButton">下一关</button>
     <script>
       document.getElementById("nextButton").addEventListener("click", function() {
@@ -29,13 +33,6 @@
           // 例如，跳转到下一关的页面或者执行下一关的初始化操作等
           window.location.href = "next_challenge.html"; // 替换为下一关的URL
       });
-
-  document.getElementById("prevButton").addEventListener("click", function() {
-      // 这里放置回到上一关的逻辑
-      // 例如，跳转回上一关的页面或者执行上一关的初始化操作等
-      window.location.href = "prev_challenge.html"; // 替换为上一关的URL
-  });
-</script>
-
+  </script>
 </body>
 </html>
