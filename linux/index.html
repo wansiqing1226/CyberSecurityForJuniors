@@ -17,27 +17,28 @@
         margin-top: 50px;
       }
 
-      button {
-  background-color: #333;
-  border: none;
-  color: #fff;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 24px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease-in-out;
-  opacity: 60%;
-}
+      a {
+        background-color: #333;
+        border: none;
+        color: #fff;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+        opacity: 60%;
+      }
 
-button:hover {
-  background-color: #666;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
-}
+      a:hover {
+        background-color: #666;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
+      }
+
       body {
         background-image: url("index_bg.jpg");
         background-repeat: no-repeat;
@@ -49,20 +50,9 @@ button:hover {
     <div class="container">
       <h1>闯关剧情游戏</h1>
       <div class="buttons">
-        <button onclick="startGame()">开始游戏</button>
-        <button onclick="aboutMe()">关于</button>
+        <a href="opening.html">开始游戏</a>
+        <a href="about.html">关于</a>
       </div>
     </div>
-    <script>
-      function startGame() {
-        // 进入游戏页面的代码
-        console.log("开始游戏");
-      }
-
-      function aboutMe() {
-        // 进入关于页面的代码
-        console.log("关于我");
-      }
-    </script>
   </body>
 </html>
