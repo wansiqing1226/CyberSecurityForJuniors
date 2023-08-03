@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentChallenge = 0;
     const challenges = [
         {
-            guide: "\n\n挑战2: 文件管理\n\n创建一个名为"newdir"的新目录，\n\n并在该目录中创建三个新文件"file1.txt"、"file2.txt"和"file3.txt"。\n\n然后，它将"file1.txt"移动到"newdir"目录中，\n\n并将"file3.txt"复制到"newdir"目录中。",
+            guide: "\n\n挑战2: 文件管理\n\n创建一个名为 \"newdir\" 的新目录，\n\n并在该目录中创建三个新文件 \"file1.txt\"、\"file2.txt\" 和 \"file3.txt\"。\n\n然后，将 \"file1.txt\" 移动到 \"newdir\" 目录中，\n\n并将 \"file3.txt\" 复制到 \"newdir\" 目录中。",
             command: "mkdir newdir",
             response: "Directory created successfully!"
         },

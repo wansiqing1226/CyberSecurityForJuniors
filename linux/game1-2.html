@@ -24,7 +24,7 @@
             <input type="text" id="input" autofocus />
         </div>
     </div>
-    <script src="script1-2-.js"></script>
+    <script src="script1-2.js"></script>
     <button id="prevButton">上一关</button>
     <button id="nextButton">下一关</button>
     <script>
@@ -32,6 +32,11 @@
           // 这里放置进入下一关的逻辑
           // 例如，跳转到下一关的页面或者执行下一关的初始化操作等
           window.location.href = "next_challenge.html"; // 替换为下一关的URL
+      })
+      document.getElementById("prevButton").addEventListener("click", function() {
+          // 这里放置进入下一关的逻辑
+          // 例如，跳转到下一关的页面或者执行下一关的初始化操作等
+          window.location.href = "game1-1.html"; // 替换为下一关的URL
       });
   </script>
 </body>
